@@ -1,0 +1,610 @@
+{
+ "generated_at": 1795458732,
+ "repos": [
+  {
+   "repo": "Bin2Decimal",
+   "trivy": {
+    "vulnerabilities": {
+     "MEDIUM": 62,
+     "LOW": 21,
+     "HIGH": 80,
+     "CRITICAL": 6
+    },
+    "secrets": {},
+    "misconfigurations": {}
+   },
+   "semgrep": {}
+  },
+  {
+   "repo": "C-_studies",
+   "trivy": {
+    "vulnerabilities": {},
+    "secrets": {},
+    "misconfigurations": {}
+   },
+   "semgrep": {}
+  },
+  {
+   "repo": "CS50_Studies",
+   "trivy": {
+    "vulnerabilities": {},
+    "secrets": {},
+    "misconfigurations": {}
+   },
+   "semgrep": {}
+  },
+  {
+   "repo": "C_studies",
+   "trivy": {
+    "vulnerabilities": {},
+    "secrets": {},
+    "misconfigurations": {}
+   },
+   "semgrep": {}
+  },
+  {
+   "repo": "Javascript.info",
+   "trivy": {
+    "vulnerabilities": {},
+    "secrets": {},
+    "misconfigurations": {}
+   },
+   "semgrep": {}
+  },
+  {
+   "repo": "MyNotionPodCodar",
+   "trivy": {
+    "vulnerabilities": {
+     "HIGH": 9,
+     "MEDIUM": 13,
+     "CRITICAL": 3,
+     "LOW": 3
+    },
+    "secrets": {},
+    "misconfigurations": {}
+   },
+   "semgrep": {}
+  },
+  {
+   "repo": "NeetCode",
+   "trivy": {
+    "vulnerabilities": {},
+    "secrets": {},
+    "misconfigurations": {}
+   },
+   "semgrep": {}
+  },
+  {
+   "repo": "ReactCalculator",
+   "trivy": {
+    "vulnerabilities": {
+     "MEDIUM": 66,
+     "LOW": 21,
+     "HIGH": 82,
+     "CRITICAL": 5
+    },
+    "secrets": {},
+    "misconfigurations": {}
+   },
+   "semgrep": {}
+  },
+  {
+   "repo": "Simple_costs",
+   "trivy": {
+    "vulnerabilities": {
+     "MEDIUM": 63,
+     "LOW": 21,
+     "HIGH": 80,
+     "CRITICAL": 6
+    },
+    "secrets": {},
+    "misconfigurations": {}
+   },
+   "semgrep": {}
+  },
+  {
+   "repo": "Tetris",
+   "trivy": {
+    "vulnerabilities": {},
+    "secrets": {},
+    "misconfigurations": {}
+   },
+   "semgrep": {}
+  },
+  {
+   "repo": "TranslationApp",
+   "trivy": {
+    "vulnerabilities": {
+     "MEDIUM": 84,
+     "LOW": 22,
+     "HIGH": 96,
+     "CRITICAL": 6
+    },
+    "secrets": {},
+    "misconfigurations": {}
+   },
+   "semgrep": {}
+  },
+  {
+   "repo": "TranslationPage",
+   "trivy": {
+    "vulnerabilities": {
+     "MEDIUM": 65,
+     "LOW": 21,
+     "HIGH": 82,
+     "CRITICAL": 5
+    },
+    "secrets": {},
+    "misconfigurations": {}
+   },
+   "semgrep": {}
+  },
+  {
+   "repo": "TypeScriptTodoList",
+   "trivy": {
+    "vulnerabilities": {
+     "MEDIUM": 1
+    },
+    "secrets": {},
+    "misconfigurations": {}
+   },
+   "semgrep": {}
+  },
+  {
+   "repo": "algoritmos2Senac",
+   "trivy": {
+    "vulnerabilities": {},
+    "secrets": {},
+    "misconfigurations": {}
+   },
+   "semgrep": {}
+  },
+  {
+   "repo": "algoritmosjavascript",
+   "trivy": {
+    "vulnerabilities": {},
+    "secrets": {},
+    "misconfigurations": {}
+   },
+   "semgrep": {}
+  },
+  {
+   "repo": "ariadne-thread",
+   "trivy": {
+    "vulnerabilities": {},
+    "secrets": {},
+    "misconfigurations": {}
+   },
+   "semgrep": {
+    "WARNING": 4
+   }
+  },
+  {
+   "repo": "bdo-profit-radar",
+   "trivy": {
+    "vulnerabilities": {},
+    "secrets": {},
+    "misconfigurations": {}
+   },
+   "semgrep": {
+    "WARNING": 5,
+    "INFO": 1
+   }
+  },
+  {
+   "repo": "bsouponline",
+   "trivy": {
+    "vulnerabilities": {},
+    "secrets": {},
+    "misconfigurations": {}
+   },
+   "semgrep": {}
+  },
+  {
+   "repo": "code_wars_exercises",
+   "trivy": {
+    "vulnerabilities": {},
+    "secrets": {},
+    "misconfigurations": {}
+   },
+   "semgrep": {}
+  },
+  {
+   "repo": "codegraph-go",
+   "trivy": {
+    "vulnerabilities": {
+     "HIGH": 4
+    },
+    "secrets": {},
+    "misconfigurations": {}
+   },
+   "semgrep": {}
+  },
+  {
+   "repo": "create_link_pdf",
+   "trivy": {
+    "vulnerabilities": {},
+    "secrets": {},
+    "misconfigurations": {}
+   },
+   "semgrep": {}
+  },
+  {
+   "repo": "curso_react_otavio_miranda",
+   "trivy": {
+    "vulnerabilities": {
+     "MEDIUM": 126,
+     "LOW": 42,
+     "HIGH": 176,
+     "CRITICAL": 13
+    },
+    "secrets": {},
+    "misconfigurations": {}
+   },
+   "semgrep": {}
+  },
+  {
+   "repo": "dontpad_clone",
+   "trivy": {
+    "vulnerabilities": {
+     "LOW": 23,
+     "MEDIUM": 78,
+     "HIGH": 99,
+     "CRITICAL": 5
+    },
+    "secrets": {},
+    "misconfigurations": {}
+   },
+   "semgrep": {}
+  },
+  {
+   "repo": "downloader",
+   "trivy": {
+    "vulnerabilities": {
+     "LOW": 22,
+     "HIGH": 96,
+     "MEDIUM": 75,
+     "CRITICAL": 5
+    },
+    "secrets": {},
+    "misconfigurations": {}
+   },
+   "semgrep": {
+    "ERROR": 1,
+    "WARNING": 1
+   }
+  },
+  {
+   "repo": "estrutura_dados_python",
+   "trivy": {
+    "vulnerabilities": {},
+    "secrets": {},
+    "misconfigurations": {}
+   },
+   "semgrep": {}
+  },
+  {
+   "repo": "extension-code-notes",
+   "trivy": {
+    "vulnerabilities": {},
+    "secrets": {},
+    "misconfigurations": {}
+   },
+   "semgrep": {}
+  },
+  {
+   "repo": "extension-downloader",
+   "trivy": {
+    "vulnerabilities": {
+     "LOW": 29,
+     "MEDIUM": 65,
+     "HIGH": 94,
+     "CRITICAL": 14
+    },
+    "secrets": {},
+    "misconfigurations": {}
+   },
+   "semgrep": {}
+  },
+  {
+   "repo": "extension-pomodoro",
+   "trivy": {
+    "vulnerabilities": {},
+    "secrets": {},
+    "misconfigurations": {}
+   },
+   "semgrep": {
+    "WARNING": 2
+   }
+  },
+  {
+   "repo": "guia_software_engineering_teorico",
+   "trivy": {
+    "vulnerabilities": {
+     "MEDIUM": 1,
+     "HIGH": 2
+    },
+    "secrets": {},
+    "misconfigurations": {
+     "HIGH": 2,
+     "LOW": 1
+    }
+   },
+   "semgrep": {
+    "WARNING": 98,
+    "MEDIUM": 1,
+    "ERROR": 4,
+    "INFO": 1
+   }
+  },
+  {
+   "repo": "httpbinproject",
+   "trivy": {
+    "vulnerabilities": {
+     "LOW": 2,
+     "MEDIUM": 17,
+     "CRITICAL": 1,
+     "HIGH": 6
+    },
+    "secrets": {},
+    "misconfigurations": {}
+   },
+   "semgrep": {
+    "WARNING": 2
+   }
+  },
+  {
+   "repo": "illiad",
+   "trivy": {
+    "vulnerabilities": {
+     "HIGH": 76,
+     "MEDIUM": 66,
+     "LOW": 4,
+     "CRITICAL": 10
+    },
+    "secrets": {},
+    "misconfigurations": {
+     "HIGH": 1,
+     "LOW": 1
+    }
+   },
+   "semgrep": {
+    "MEDIUM": 5,
+    "WARNING": 62,
+    "ERROR": 50,
+    "INFO": 13
+   }
+  },
+  {
+   "repo": "jsbootcamp",
+   "trivy": {
+    "vulnerabilities": {},
+    "secrets": {},
+    "misconfigurations": {}
+   },
+   "semgrep": {}
+  },
+  {
+   "repo": "my-cv",
+   "trivy": {
+    "vulnerabilities": {
+     "LOW": 22,
+     "MEDIUM": 65,
+     "HIGH": 83,
+     "CRITICAL": 4
+    },
+    "secrets": {},
+    "misconfigurations": {}
+   },
+   "semgrep": {}
+  },
+  {
+   "repo": "my_obsidian_vault",
+   "trivy": {
+    "vulnerabilities": {},
+    "secrets": {},
+    "misconfigurations": {}
+   },
+   "semgrep": {
+    "ERROR": 1
+   }
+  },
+  {
+   "repo": "my_private_code",
+   "trivy": {
+    "vulnerabilities": {},
+    "secrets": {},
+    "misconfigurations": {}
+   },
+   "semgrep": {
+    "WARNING": 2
+   }
+  },
+  {
+   "repo": "mygame_bootdev",
+   "trivy": {
+    "vulnerabilities": {},
+    "secrets": {},
+    "misconfigurations": {}
+   },
+   "semgrep": {}
+  },
+  {
+   "repo": "ogatalars",
+   "trivy": {
+    "vulnerabilities": {},
+    "secrets": {},
+    "misconfigurations": {}
+   },
+   "semgrep": {}
+  },
+  {
+   "repo": "ogatalars.github.io",
+   "trivy": {
+    "vulnerabilities": {},
+    "secrets": {},
+    "misconfigurations": {}
+   },
+   "semgrep": {}
+  },
+  {
+   "repo": "panoptes",
+   "trivy": {
+    "vulnerabilities": {},
+    "secrets": {},
+    "misconfigurations": {}
+   },
+   "semgrep": {
+    "WARNING": 8
+   }
+  },
+  {
+   "repo": "pensando_python",
+   "trivy": {
+    "vulnerabilities": {},
+    "secrets": {},
+    "misconfigurations": {}
+   },
+   "semgrep": {}
+  },
+  {
+   "repo": "pomodoroReact",
+   "trivy": {
+    "vulnerabilities": {
+     "MEDIUM": 66,
+     "LOW": 21,
+     "HIGH": 82,
+     "CRITICAL": 5
+    },
+    "secrets": {},
+    "misconfigurations": {}
+   },
+   "semgrep": {}
+  },
+  {
+   "repo": "postogata-extension",
+   "trivy": {
+    "vulnerabilities": {
+     "HIGH": 34,
+     "MEDIUM": 40,
+     "LOW": 5,
+     "CRITICAL": 5
+    },
+    "secrets": {},
+    "misconfigurations": {}
+   },
+   "semgrep": {
+    "WARNING": 1
+   }
+  },
+  {
+   "repo": "projectopdi-filaHospitalar",
+   "trivy": {
+    "vulnerabilities": {
+     "LOW": 19,
+     "MEDIUM": 58,
+     "HIGH": 114,
+     "CRITICAL": 5
+    },
+    "secrets": {},
+    "misconfigurations": {}
+   },
+   "semgrep": {
+    "ERROR": 6,
+    "WARNING": 5
+   }
+  },
+  {
+   "repo": "projeto_integrador_dont_pad_clone",
+   "trivy": {
+    "vulnerabilities": {
+     "HIGH": 52,
+     "MEDIUM": 51,
+     "LOW": 5,
+     "CRITICAL": 4
+    },
+    "secrets": {},
+    "misconfigurations": {}
+   },
+   "semgrep": {
+    "WARNING": 1,
+    "INFO": 1
+   }
+  },
+  {
+   "repo": "projetointegradorSenac",
+   "trivy": {
+    "vulnerabilities": {
+     "HIGH": 2
+    },
+    "secrets": {},
+    "misconfigurations": {}
+   },
+   "semgrep": {}
+  },
+  {
+   "repo": "reactBootCamp",
+   "trivy": {
+    "vulnerabilities": {
+     "MEDIUM": 281,
+     "LOW": 94,
+     "HIGH": 404,
+     "CRITICAL": 55
+    },
+    "secrets": {},
+    "misconfigurations": {}
+   },
+   "semgrep": {
+    "WARNING": 36
+   }
+  },
+  {
+   "repo": "reactJs0to100",
+   "trivy": {
+    "vulnerabilities": {
+     "LOW": 126,
+     "MEDIUM": 374,
+     "HIGH": 554,
+     "CRITICAL": 42
+    },
+    "secrets": {},
+    "misconfigurations": {}
+   },
+   "semgrep": {}
+  },
+  {
+   "repo": "react_aprenda_praticando",
+   "trivy": {
+    "vulnerabilities": {
+     "LOW": 1276,
+     "MEDIUM": 3617,
+     "CRITICAL": 867,
+     "HIGH": 4659
+    },
+    "secrets": {},
+    "misconfigurations": {}
+   },
+   "semgrep": {}
+  },
+  {
+   "repo": "transcreva-isso",
+   "trivy": {
+    "vulnerabilities": {},
+    "secrets": {},
+    "misconfigurations": {}
+   },
+   "semgrep": {
+    "WARNING": 4
+   }
+  },
+  {
+   "repo": "typescriptBootCamp",
+   "trivy": {
+    "vulnerabilities": {},
+    "secrets": {},
+    "misconfigurations": {}
+   },
+   "semgrep": {}
+  }
+ ]
+}
