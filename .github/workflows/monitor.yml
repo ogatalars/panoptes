@@ -4,8 +4,6 @@ on:
   schedule:
     # Every 15 min, off the top of the hour (GitHub delays :00 jobs the most).
     - cron: "7,22,37,52 * * * *"
-  push:
-    branches: [main]
   workflow_dispatch:
     inputs:
       drill:
@@ -16,8 +14,6 @@ on:
 permissions:
   contents: write   # force-push the single-commit `data` branch
   issues: write     # open/update/close incident issues
-  pages: write
-  id-token: write   # required by actions/deploy-pages
 
 # One writer at a time on the data branch.
 concurrency:
@@ -28,9 +24,6 @@ jobs:
   monitor:
     runs-on: ubuntu-latest
     timeout-minutes: 10
-    environment:
-      name: github-pages
-      url: ${{ steps.deploy.outputs.page_url }}
     steps:
       - uses: actions/checkout@v7
 
@@ -61,17 +54,3 @@ jobs:
           cd ..
           git fetch -q ./data +data:refs/heads/data
           git push -q -f origin refs/heads/data
-
-      - name: Assemble site
-        run: |
-          mkdir -p _site/data
-          cp site/* _site/
-          cp data/status.json _site/data/
-          cp security/summary.json _site/data/security.json 2>/dev/null || true
-
-      - uses: actions/upload-pages-artifact@v5
-        with:
-          path: _site
-
-      - id: deploy
-        uses: actions/deploy-pages@v5

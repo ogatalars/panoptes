@@ -8,6 +8,10 @@ on:
 permissions:
   contents: write   # commit the weekly summary to main (also keeps the repo "active")
 
+concurrency:
+  group: panoptes-security
+  cancel-in-progress: false
+
 env:
   TRIVY_VERSION: "0.76.1"
 
@@ -50,4 +54,4 @@ jobs:
           python3 -m panoptes.scan reports security/summary.json
           git add security/summary.json
           git -c user.name="github-actions[bot]" -c user.email="41898282+github-actions[bot]@users.noreply.github.com" \
-            commit -qm "security: weekly scan summary" && git push -q origin HEAD:main || echo "nothing to commit"
+            commit -qm "security: weekly scan summary" && git pull -q --rebase origin main && git push -q origin HEAD:main || echo "nothing to commit"

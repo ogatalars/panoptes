@@ -34,7 +34,7 @@ panoptes/monitor.py     uma rodada: probe -> histórico -> status.json -> incide
 panoptes/incident.py    issues no GitHub + rascunho opcional por LLM
 panoptes/scan.py        resume os relatórios do Trivy/Semgrep (só contagens)
 site/                   status page em HTML/CSS/JS puro
-.github/workflows/      monitor (15 min), security-scan (semanal), ci (testes)
+.github/workflows/      monitor (15 min), security-scan (semanal), pages (só quando site/ muda), ci (testes)
 ```
 
 ## Onde os dados ficam (e por que não incham o `main`)
@@ -43,6 +43,7 @@ site/                   status page em HTML/CSS/JS puro
 - Cada rodada recria essa branch como **um único commit órfão** e faz force-push. A branch sempre tem 1 commit, então não acumula ~100 commits por dia em lugar nenhum.
 - O histórico é uma janela móvel de 30 dias: amostras mais velhas são descartadas a cada rodada. 3 alvos x 96 probes/dia x 30 dias ≈ 8.600 amostras, uns 260 KB. Limitado por construção.
 - A página não lê o histórico bruto: o `status.json` já traz o agregado (SLI diário, últimas 24h).
+- A página lê o `status.json` direto de `raw.githubusercontent.com` (que libera CORS e faz cache de ~5 min). Por isso o Pages **não** é republicado a cada probe: o deploy só roda quando `site/` muda, bem longe do limite soft de 10 builds/hora do Pages.
 - O `main` só recebe código e **um** commit por semana do scan de segurança (`security/summary.json`).
 
 O force-push é intencional e restrito à branch `data`, que é descartável: se ela sumir, o monitor recomeça a janela do zero.
@@ -92,9 +93,11 @@ A própria status page declara CSP e Referrer-Policy via `<meta>`. O resumo do s
 |---|---|
 | Repositório público | grátis |
 | GitHub Actions em runner padrão (`ubuntu-latest`) em repo público | grátis, sem limite de minutos |
-| GitHub Pages | grátis |
+| GitHub Pages | grátis. Deploy só quando `site/` muda; os dados vêm do raw, sem rebuild por probe |
+| Execuções empilhadas | `concurrency` em todos os workflows: no máximo 1 rodando + 1 na fila por workflow |
 | Trivy, Semgrep (regras públicas, `--metrics=off`) | grátis, sem login |
 | Issues via `GITHUB_TOKEN` | grátis |
+| GitHub Models | aposentado em 30/07/2026; o código não usa, sem nenhum opt-in pago |
 | LLM | desligado por padrão. Só custa se você configurar um provedor pago |
 
 ## Rodar localmente
@@ -116,7 +119,7 @@ Sem `GITHUB_TOKEN` no ambiente, a parte de issues é pulada.
 - **SLO vs SLA:** an internal 99.5% SLO, stricter than a public 99% SLA, so the team reacts before the public promise breaks. Both error budgets are shown side by side, along with multiwindow burn-rate alerts adapted to a 15-minute cadence.
 - **Security:** TLS days-to-expiry and security headers per target. Headers GitHub Pages cannot set show as a *platform limitation*, never as budget-burning failures. Every week, Trivy and Semgrep scan all my public repos (only counts are published).
 - **AI:** one deduplicated GitHub issue per target when it goes down or a page-level burn alert fires, with facts, a probe timeline and an optional LLM-drafted postmortem. GitHub Models was retired on 2026-07-30, so the AI step uses any OpenAI-compatible endpoint set through repo variables and is off by default. The issue always opens, with or without the AI section.
-- **Data:** a rolling 30-day window stored on a `data` branch that is rewritten as a single orphan commit on every run, so history stays bounded and `main` stays clean.
+- **Data:** a rolling 30-day window stored on a `data` branch that is rewritten as a single orphan commit on every run, so history stays bounded and `main` stays clean. The page fetches it from `raw.githubusercontent.com`, so Pages is only redeployed when the site changes.
 - **Honesty:** Actions cron is delayed or skipped at times. The page shows probes received vs expected and the largest gap. Scheduled workflows in public repos are disabled after 60 days of inactivity; a weekly real commit on `main` is the mitigation.
 
 MIT licensed.

@@ -123,11 +123,15 @@ async function getJSON(path) {
   return r.json();
 }
 
+// Data is read straight from the repo (no Pages redeploy per probe round).
+// raw.githubusercontent.com sends CORS headers and caches for ~5 minutes.
+const RAW = "https://raw.githubusercontent.com/ogatalars/panoptes";
+
 (async () => {
   const updated = document.getElementById("updated");
   try {
-    const status = await getJSON("data/status.json");
-    const sec = await getJSON("data/security.json").catch(() => null);
+    const status = await getJSON(`${RAW}/data/status.json`);
+    const sec = await getJSON(`${RAW}/main/security/summary.json`).catch(() => null);
     updated.textContent = `Last probe round ${utc(status.generated_at)} (${ago(status.generated_at)}), every ~${status.interval_minutes} min, ${status.window_days}-day window.`;
     document.getElementById("targets").append(...status.targets.map(card));
     document.getElementById("security").append(h("div", { class: "scroll" }, security(status.targets)));
