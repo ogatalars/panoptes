@@ -1,0 +1,53 @@
+name: security-scan
+
+on:
+  schedule:
+    - cron: "17 6 * * 1"   # Mondays 06:17 UTC
+  workflow_dispatch:
+
+permissions:
+  contents: write   # commit the weekly summary to main (also keeps the repo "active")
+
+env:
+  TRIVY_VERSION: "0.76.1"
+
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v7
+
+      - name: Install Trivy (pinned release, checksum verified)
+        run: |
+          base="https://github.com/aquasecurity/trivy/releases/download/v${TRIVY_VERSION}"
+          deb="trivy_${TRIVY_VERSION}_Linux-64bit.deb"
+          curl -sSfLO "$base/$deb" -O "$base/trivy_${TRIVY_VERSION}_checksums.txt"
+          grep " $deb\$" "trivy_${TRIVY_VERSION}_checksums.txt" | sha256sum -c -
+          sudo dpkg -i "$deb"
+
+      - name: Install Semgrep
+        run: pipx install semgrep
+
+      - name: Scan every public, non-fork, non-archived repo of the owner
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          mkdir -p repos reports
+          gh repo list "$GITHUB_REPOSITORY_OWNER" --visibility public --source --no-archived \
+            --limit 50 --json name --jq '.[].name' > repos.txt
+          while read -r repo; do
+            git clone -q --depth=1 "https://github.com/$GITHUB_REPOSITORY_OWNER/$repo" "repos/$repo" || continue
+            trivy fs --quiet --scanners vuln,secret,misconfig --format json \
+              --output "reports/trivy-$repo.json" "repos/$repo" || rm -f "reports/trivy-$repo.json"
+            semgrep scan --config p/default --metrics=off --quiet --json \
+              --output "reports/semgrep-$repo.json" "repos/$repo" || true
+          done < repos.txt
+
+      - name: Summarise (counts only) and commit
+        run: |
+          mkdir -p security
+          python3 -m panoptes.scan reports security/summary.json
+          git add security/summary.json
+          git -c user.name="github-actions[bot]" -c user.email="41898282+github-actions[bot]@users.noreply.github.com" \
+            commit -qm "security: weekly scan summary" && git push -q origin HEAD:main || echo "nothing to commit"

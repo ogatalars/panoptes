@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:">
+  <meta name="referrer" content="no-referrer">
+  <title>Panoptes · status</title>
+  <meta name="description" content="Zero-cost SLO / SLA, security and AI-assisted incident monitor running on GitHub Actions.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="wrap">
+    <header class="hero">
+      <p class="eyebrow">ogatalars / panoptes</p>
+      <h1>Panoptes</h1>
+      <p class="lead">The hundred-eyed watchman that never sleeps: uptime, SLOs, security posture and AI-drafted incident reports for my sites, built only on GitHub Actions and Pages.</p>
+      <p class="meta" id="updated" aria-live="polite">Loading data…</p>
+    </header>
+
+    <section aria-labelledby="t-targets">
+      <h2 id="t-targets">Targets</h2>
+      <aside class="note">
+        <strong>Why is the SLO stricter than the SLA?</strong>
+        The SLA is the promise made to users; the SLO is the internal alarm set tighter, so the team notices and reacts while there is still room before the public promise is broken.
+        An SLI here is the share of probes that answered 2xx within the latency threshold over the last 30 days.
+      </aside>
+      <div id="targets" class="cards"></div>
+    </section>
+
+    <section aria-labelledby="t-sec">
+      <h2 id="t-sec">Security posture</h2>
+      <p class="muted">Headers marked <span class="chip platform">platform</span> are absent because GitHub Pages cannot set custom HTTP headers. That is a known limitation of the host, not an outage, so it never touches the error budget. <span class="chip meta">meta</span> means the policy is declared with an HTML &lt;meta&gt; tag instead.</p>
+      <div id="security"></div>
+      <h3>Weekly code scan (Trivy + Semgrep)</h3>
+      <div id="scan" class="scroll"></div>
+    </section>
+
+    <section aria-labelledby="t-honest">
+      <h2 id="t-honest">Measurement honesty</h2>
+      <p>Probes run on GitHub Actions <code>cron</code>, which is best-effort: runs are often delayed and sometimes skipped. The SLI is computed over the probes that actually ran, so a skipped probe is a blind spot, not a success. The table shows how many probes arrived versus how many the schedule promised.</p>
+      <div id="coverage" class="scroll"></div>
+    </section>
+
+    <section aria-labelledby="t-ai">
+      <h2 id="t-ai">Incidents</h2>
+      <p>When a target goes down or a fast burn-rate alert fires, Panoptes opens (or updates) one GitHub issue per target with the facts, the probe timeline and, when a model is configured, an AI-drafted postmortem. The AI only writes text; it never changes code or config.
+      <a href="https://github.com/ogatalars/panoptes/issues?q=label%3Aincident">See incident issues</a>.</p>
+    </section>
+
+    <footer class="foot">
+      <a href="https://github.com/ogatalars/panoptes">Source on GitHub</a> · <a href="https://ogatalars.github.io/">Felipe Ogata</a>
+    </footer>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>

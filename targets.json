@@ -1,0 +1,33 @@
+{
+  "probe_interval_minutes": 15,
+  "window_days": 30,
+  "targets": [
+    {
+      "id": "cv",
+      "name": "CV site",
+      "url": "https://ogatalars.github.io/",
+      "slo": 0.995,
+      "sla": 0.99,
+      "latency_ms": 2000,
+      "headers_configurable": false
+    },
+    {
+      "id": "bdo-profit-radar",
+      "name": "BDO Profit Radar",
+      "url": "https://ogatalars.github.io/bdo-profit-radar/",
+      "slo": 0.995,
+      "sla": 0.99,
+      "latency_ms": 2000,
+      "headers_configurable": false
+    },
+    {
+      "id": "guia-swe",
+      "name": "Guia de Software Engineering",
+      "url": "https://ogatalars.github.io/guia_software_engineering_teorico/",
+      "slo": 0.995,
+      "sla": 0.99,
+      "latency_ms": 2000,
+      "headers_configurable": false
+    }
+  ]
+}

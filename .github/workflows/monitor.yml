@@ -1,0 +1,77 @@
+name: monitor
+
+on:
+  schedule:
+    # Every 15 min, off the top of the hour (GitHub delays :00 jobs the most).
+    - cron: "7,22,37,52 * * * *"
+  push:
+    branches: [main]
+  workflow_dispatch:
+    inputs:
+      drill:
+        description: "Target id to open a drill incident for (leave empty for a normal run)"
+        required: false
+        default: ""
+
+permissions:
+  contents: write   # force-push the single-commit `data` branch
+  issues: write     # open/update/close incident issues
+  pages: write
+  id-token: write   # required by actions/deploy-pages
+
+# One writer at a time on the data branch.
+concurrency:
+  group: panoptes-monitor
+  cancel-in-progress: false
+
+jobs:
+  monitor:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v7
+
+      - name: Restore rolling history from the data branch
+        run: |
+          mkdir -p data
+          if git fetch -q --depth=1 origin data; then
+            for f in history.json status.json; do git show "FETCH_HEAD:$f" > "data/$f" 2>/dev/null || rm -f "data/$f"; done
+          fi
+
+      - name: Probe targets, compute SLOs, sync incidents
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+          PANOPTES_DRILL: ${{ inputs.drill }}
+          # Optional OpenAI-compatible endpoint for the AI postmortem draft (see README).
+          LLM_ENDPOINT: ${{ vars.LLM_ENDPOINT }}
+          LLM_MODEL: ${{ vars.LLM_MODEL }}
+          LLM_API_KEY: ${{ secrets.LLM_API_KEY }}
+        run: python3 -m panoptes.monitor targets.json
+
+      - name: Save data as a single orphan commit (history stays one commit deep)
+        run: |
+          cd data
+          git init -q -b data
+          git add history.json status.json
+          git -c user.name="github-actions[bot]" -c user.email="41898282+github-actions[bot]@users.noreply.github.com" \
+            commit -qm "data $(date -u +%FT%TZ)"
+          cd ..
+          git fetch -q ./data +data:refs/heads/data
+          git push -q -f origin refs/heads/data
+
+      - name: Assemble site
+        run: |
+          mkdir -p _site/data
+          cp site/* _site/
+          cp data/status.json _site/data/
+          cp security/summary.json _site/data/security.json 2>/dev/null || true
+
+      - uses: actions/upload-pages-artifact@v5
+        with:
+          path: _site
+
+      - id: deploy
+        uses: actions/deploy-pages@v5
