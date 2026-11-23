@@ -68,6 +68,9 @@ function card(t) {
     h("details", {}, h("summary", {}, "Burn-rate alerts"), h("div", { class: "scroll" }, alertTable(t.alerts))));
 }
 
+const SHORT = { "Content-Security-Policy": "CSP", "X-Content-Type-Options": "nosniff", "X-Frame-Options": "X-Frame", "Referrer-Policy": "Referrer", "Permissions-Policy": "Permissions" };
+const MARK = { ok: "✓", meta: "✓", platform: "–", missing: "✕" };
+
 function security(targets) {
   return h("table", {},
     h("thead", {}, h("tr", {}, h("th", {}, "Target"), h("th", { class: "num" }, "TLS expires in"), h("th", {}, "Headers"))),
@@ -77,7 +80,8 @@ function security(targets) {
         h("td", {}, t.name),
         h("td", { class: "num" }, d == null ? "unknown" : `${Math.floor(d)} days${t.security.tls_ok ? "" : " (renew!)"}`),
         h("td", {}, h("div", { class: "chips" }, t.security.headers.map((c) =>
-          h("span", { class: `chip ${c.state}`, title: c.state }, `${c.header}: ${c.state}`)))));
+          h("span", { class: `chip ${c.state}`, title: `${c.header}: ${c.state}`, "aria-label": `${c.header}: ${c.state}` },
+            `${MARK[c.state]} ${SHORT[c.header] || c.header}`)))));
     })));
 }
 
@@ -86,16 +90,20 @@ const sev = (o) => (o && sum(o) ? Object.entries(o).map(([k, v]) => `${v} ${k.to
 
 function scan(data) {
   if (!data) return h("p", { class: "muted" }, "No scan yet: the weekly workflow has not run.");
+  const critical = data.repos.filter((r) => r.trivy && (r.trivy.vulnerabilities.CRITICAL || r.trivy.secrets.CRITICAL)).length;
+  const secrets = data.repos.filter((r) => r.trivy && sum(r.trivy.secrets)).length;
   return h("div", {},
-    h("p", { class: "meta" }, `Last scan ${utc(data.generated_at)}. Counts only; details stay in the workflow logs.`),
-    h("table", {},
+    h("p", {}, `${data.repos.length} public repositories scanned on ${utc(data.generated_at)}: `,
+      `${critical} with critical findings, ${secrets} with leaked secrets.`),
+    h("details", {}, h("summary", {}, "Per-repository counts"), h("div", { class: "scroll" }, h("table", {},
       h("thead", {}, h("tr", {}, ["Repository", "Dependency CVEs", "Secrets", "Misconfig", "Semgrep"].map((x) => h("th", {}, x)))),
       h("tbody", {}, data.repos.map((r) => h("tr", {},
         h("td", {}, h("a", { href: `https://github.com/ogatalars/${r.repo}` }, r.repo)),
         h("td", {}, r.trivy ? sev(r.trivy.vulnerabilities) : "not scanned"),
         h("td", {}, r.trivy ? sev(r.trivy.secrets) : "not scanned"),
         h("td", {}, r.trivy ? sev(r.trivy.misconfigurations) : "not scanned"),
-        h("td", {}, r.semgrep ? sev(r.semgrep) : "not scanned"))))));
+        h("td", {}, r.semgrep ? sev(r.semgrep) : "not scanned"))))))),
+    h("p", { class: "meta" }, "Counts only; file paths and secret snippets stay out of this public page."));
 }
 
 function coverage(s) {

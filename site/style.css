@@ -62,7 +62,7 @@ details { margin-top: 10px; }
 summary { cursor: pointer; color: var(--muted); }
 
 .chips { display: flex; flex-wrap: wrap; gap: 6px; }
-.chip { font: 400 12.5px var(--mono); padding: 2px 8px; border-radius: 999px; border: 1px solid var(--line); background: var(--card); white-space: nowrap; }
+.chip { font: 400 12.5px var(--mono); padding: 2px 8px; border-radius: 3px; border: 1px solid var(--line); background: var(--card); white-space: nowrap; }
 .chip.ok { border-color: var(--accent); color: var(--accent); }
 .chip.meta { border-color: var(--accent); color: var(--accent); border-style: dashed; }
 .chip.platform { color: var(--muted); }

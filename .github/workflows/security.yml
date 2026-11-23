@@ -35,7 +35,7 @@ jobs:
         run: |
           mkdir -p repos reports
           gh repo list "$GITHUB_REPOSITORY_OWNER" --visibility public --source --no-archived \
-            --limit 50 --json name --jq '.[].name' > repos.txt
+            --limit 200 --json name --jq '.[].name' > repos.txt
           while read -r repo; do
             git clone -q --depth=1 "https://github.com/$GITHUB_REPOSITORY_OWNER/$repo" "repos/$repo" || continue
             trivy fs --quiet --scanners vuln,secret,misconfig --format json \
