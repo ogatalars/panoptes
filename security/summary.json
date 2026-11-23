@@ -1,6 +1,33 @@
 {
- "generated_at": 1795458732,
+ "generated_at": 1795459895,
  "repos": [
+  {
+   "repo": "7daysOfCode",
+   "trivy": {
+    "vulnerabilities": {},
+    "secrets": {},
+    "misconfigurations": {}
+   },
+   "semgrep": {}
+  },
+  {
+   "repo": "AuthorABNT",
+   "trivy": {
+    "vulnerabilities": {},
+    "secrets": {},
+    "misconfigurations": {}
+   },
+   "semgrep": {}
+  },
+  {
+   "repo": "BMIcalculator",
+   "trivy": {
+    "vulnerabilities": {},
+    "secrets": {},
+    "misconfigurations": {}
+   },
+   "semgrep": {}
+  },
   {
    "repo": "Bin2Decimal",
    "trivy": {
@@ -43,7 +70,73 @@
    "semgrep": {}
   },
   {
+   "repo": "Classificador_Decisao",
+   "trivy": {
+    "vulnerabilities": {},
+    "secrets": {},
+    "misconfigurations": {}
+   },
+   "semgrep": {}
+  },
+  {
+   "repo": "Crawler_ESAJ",
+   "trivy": {
+    "vulnerabilities": {
+     "HIGH": 20,
+     "MEDIUM": 15
+    },
+    "secrets": {},
+    "misconfigurations": {}
+   },
+   "semgrep": {}
+  },
+  {
+   "repo": "Decision_Classifier",
+   "trivy": {
+    "vulnerabilities": {},
+    "secrets": {},
+    "misconfigurations": {}
+   },
+   "semgrep": {}
+  },
+  {
+   "repo": "Decison_Class",
+   "trivy": {
+    "vulnerabilities": {},
+    "secrets": {},
+    "misconfigurations": {}
+   },
+   "semgrep": {}
+  },
+  {
+   "repo": "FizzBuzz",
+   "trivy": {
+    "vulnerabilities": {},
+    "secrets": {},
+    "misconfigurations": {}
+   },
+   "semgrep": {}
+  },
+  {
+   "repo": "Java",
+   "trivy": {
+    "vulnerabilities": {},
+    "secrets": {},
+    "misconfigurations": {}
+   },
+   "semgrep": {}
+  },
+  {
    "repo": "Javascript.info",
+   "trivy": {
+    "vulnerabilities": {},
+    "secrets": {},
+    "misconfigurations": {}
+   },
+   "semgrep": {}
+  },
+  {
+   "repo": "Jogo-dos-dados",
    "trivy": {
     "vulnerabilities": {},
     "secrets": {},
@@ -103,7 +196,25 @@
    "semgrep": {}
   },
   {
+   "repo": "Teste_1",
+   "trivy": {
+    "vulnerabilities": {},
+    "secrets": {},
+    "misconfigurations": {}
+   },
+   "semgrep": {}
+  },
+  {
    "repo": "Tetris",
+   "trivy": {
+    "vulnerabilities": {},
+    "secrets": {},
+    "misconfigurations": {}
+   },
+   "semgrep": {}
+  },
+  {
+   "repo": "Tivan",
    "trivy": {
     "vulnerabilities": {},
     "secrets": {},
@@ -192,6 +303,15 @@
    }
   },
   {
+   "repo": "bestOfMe",
+   "trivy": {
+    "vulnerabilities": {},
+    "secrets": {},
+    "misconfigurations": {}
+   },
+   "semgrep": {}
+  },
+  {
    "repo": "bsouponline",
    "trivy": {
     "vulnerabilities": {},
@@ -221,6 +341,28 @@
    "semgrep": {}
   },
   {
+   "repo": "contadorPassagem",
+   "trivy": {
+    "vulnerabilities": {},
+    "secrets": {},
+    "misconfigurations": {}
+   },
+   "semgrep": {
+    "WARNING": 1
+   }
+  },
+  {
+   "repo": "cpfValidate",
+   "trivy": {
+    "vulnerabilities": {},
+    "secrets": {},
+    "misconfigurations": {}
+   },
+   "semgrep": {
+    "WARNING": 1
+   }
+  },
+  {
    "repo": "create_link_pdf",
    "trivy": {
     "vulnerabilities": {},
@@ -228,6 +370,17 @@
     "misconfigurations": {}
    },
    "semgrep": {}
+  },
+  {
+   "repo": "curriculo-teste-",
+   "trivy": {
+    "vulnerabilities": {},
+    "secrets": {},
+    "misconfigurations": {}
+   },
+   "semgrep": {
+    "WARNING": 1
+   }
   },
   {
    "repo": "curso_react_otavio_miranda",
@@ -238,6 +391,42 @@
      "HIGH": 176,
      "CRITICAL": 13
     },
+    "secrets": {},
+    "misconfigurations": {}
+   },
+   "semgrep": {}
+  },
+  {
+   "repo": "cvcss",
+   "trivy": {
+    "vulnerabilities": {},
+    "secrets": {},
+    "misconfigurations": {}
+   },
+   "semgrep": {}
+  },
+  {
+   "repo": "darkLightMode",
+   "trivy": {
+    "vulnerabilities": {},
+    "secrets": {},
+    "misconfigurations": {}
+   },
+   "semgrep": {}
+  },
+  {
+   "repo": "dhnews",
+   "trivy": {
+    "vulnerabilities": {},
+    "secrets": {},
+    "misconfigurations": {}
+   },
+   "semgrep": {}
+  },
+  {
+   "repo": "dio-aula-repositorio",
+   "trivy": {
+    "vulnerabilities": {},
     "secrets": {},
     "misconfigurations": {}
    },
@@ -284,6 +473,24 @@
    "semgrep": {}
   },
   {
+   "repo": "estudos_Python",
+   "trivy": {
+    "vulnerabilities": {},
+    "secrets": {},
+    "misconfigurations": {}
+   },
+   "semgrep": {}
+  },
+  {
+   "repo": "expressExercicios",
+   "trivy": {
+    "vulnerabilities": {},
+    "secrets": {},
+    "misconfigurations": {}
+   },
+   "semgrep": {}
+  },
+  {
    "repo": "extension-code-notes",
    "trivy": {
     "vulnerabilities": {},
@@ -316,6 +523,21 @@
    "semgrep": {
     "WARNING": 2
    }
+  },
+  {
+   "repo": "github-slideshow",
+   "trivy": {
+    "vulnerabilities": {
+     "HIGH": 29,
+     "MEDIUM": 32,
+     "LOW": 15,
+     "CRITICAL": 4,
+     "UNKNOWN": 2
+    },
+    "secrets": {},
+    "misconfigurations": {}
+   },
+   "semgrep": {}
   },
   {
    "repo": "guia_software_engineering_teorico",
@@ -376,7 +598,73 @@
    }
   },
   {
+   "repo": "introToReact",
+   "trivy": {
+    "vulnerabilities": {
+     "LOW": 21,
+     "MEDIUM": 62,
+     "HIGH": 94,
+     "CRITICAL": 7
+    },
+    "secrets": {},
+    "misconfigurations": {}
+   },
+   "semgrep": {}
+  },
+  {
+   "repo": "intro_web",
+   "trivy": {
+    "vulnerabilities": {
+     "HIGH": 5,
+     "LOW": 6,
+     "MEDIUM": 4,
+     "CRITICAL": 1
+    },
+    "secrets": {},
+    "misconfigurations": {}
+   },
+   "semgrep": {
+    "INFO": 1
+   }
+  },
+  {
+   "repo": "introducaoTypeScript",
+   "trivy": {
+    "vulnerabilities": {},
+    "secrets": {},
+    "misconfigurations": {}
+   },
+   "semgrep": {}
+  },
+  {
    "repo": "jsbootcamp",
+   "trivy": {
+    "vulnerabilities": {},
+    "secrets": {},
+    "misconfigurations": {}
+   },
+   "semgrep": {}
+  },
+  {
+   "repo": "maiornumero",
+   "trivy": {
+    "vulnerabilities": {},
+    "secrets": {},
+    "misconfigurations": {}
+   },
+   "semgrep": {}
+  },
+  {
+   "repo": "medidordevelocidade",
+   "trivy": {
+    "vulnerabilities": {},
+    "secrets": {},
+    "misconfigurations": {}
+   },
+   "semgrep": {}
+  },
+  {
+   "repo": "meuProjeto",
    "trivy": {
     "vulnerabilities": {},
     "secrets": {},
@@ -430,6 +718,15 @@
    "semgrep": {}
   },
   {
+   "repo": "nome_heroi_vilao",
+   "trivy": {
+    "vulnerabilities": {},
+    "secrets": {},
+    "misconfigurations": {}
+   },
+   "semgrep": {}
+  },
+  {
    "repo": "ogatalars",
    "trivy": {
     "vulnerabilities": {},
@@ -448,6 +745,15 @@
    "semgrep": {}
   },
   {
+   "repo": "one_week_python",
+   "trivy": {
+    "vulnerabilities": {},
+    "secrets": {},
+    "misconfigurations": {}
+   },
+   "semgrep": {}
+  },
+  {
    "repo": "panoptes",
    "trivy": {
     "vulnerabilities": {},
@@ -455,11 +761,20 @@
     "misconfigurations": {}
    },
    "semgrep": {
-    "WARNING": 8
+    "WARNING": 9
    }
   },
   {
    "repo": "pensando_python",
+   "trivy": {
+    "vulnerabilities": {},
+    "secrets": {},
+    "misconfigurations": {}
+   },
+   "semgrep": {}
+  },
+  {
+   "repo": "pomodoro",
    "trivy": {
     "vulnerabilities": {},
     "secrets": {},
@@ -515,6 +830,15 @@
    }
   },
   {
+   "repo": "projetoCinemaHouse",
+   "trivy": {
+    "vulnerabilities": {},
+    "secrets": {},
+    "misconfigurations": {}
+   },
+   "semgrep": {}
+  },
+  {
    "repo": "projeto_integrador_dont_pad_clone",
    "trivy": {
     "vulnerabilities": {
@@ -532,11 +856,29 @@
    }
   },
   {
+   "repo": "projetocores",
+   "trivy": {
+    "vulnerabilities": {},
+    "secrets": {},
+    "misconfigurations": {}
+   },
+   "semgrep": {}
+  },
+  {
    "repo": "projetointegradorSenac",
    "trivy": {
     "vulnerabilities": {
      "HIGH": 2
     },
+    "secrets": {},
+    "misconfigurations": {}
+   },
+   "semgrep": {}
+  },
+  {
+   "repo": "projetojokenpo",
+   "trivy": {
+    "vulnerabilities": {},
     "secrets": {},
     "misconfigurations": {}
    },
@@ -573,6 +915,15 @@
    "semgrep": {}
   },
   {
+   "repo": "reactTraining",
+   "trivy": {
+    "vulnerabilities": {},
+    "secrets": {},
+    "misconfigurations": {}
+   },
+   "semgrep": {}
+  },
+  {
    "repo": "react_aprenda_praticando",
    "trivy": {
     "vulnerabilities": {
@@ -581,6 +932,44 @@
      "CRITICAL": 867,
      "HIGH": 4659
     },
+    "secrets": {},
+    "misconfigurations": {}
+   },
+   "semgrep": {}
+  },
+  {
+   "repo": "shopping1",
+   "trivy": {
+    "vulnerabilities": {},
+    "secrets": {},
+    "misconfigurations": {}
+   },
+   "semgrep": {
+    "WARNING": 4
+   }
+  },
+  {
+   "repo": "simplecalculator",
+   "trivy": {
+    "vulnerabilities": {},
+    "secrets": {},
+    "misconfigurations": {}
+   },
+   "semgrep": {}
+  },
+  {
+   "repo": "teste",
+   "trivy": {
+    "vulnerabilities": {},
+    "secrets": {},
+    "misconfigurations": {}
+   },
+   "semgrep": {}
+  },
+  {
+   "repo": "testeGit",
+   "trivy": {
+    "vulnerabilities": {},
     "secrets": {},
     "misconfigurations": {}
    },
@@ -598,7 +987,25 @@
    }
   },
   {
+   "repo": "trocadevariavel",
+   "trivy": {
+    "vulnerabilities": {},
+    "secrets": {},
+    "misconfigurations": {}
+   },
+   "semgrep": {}
+  },
+  {
    "repo": "typescriptBootCamp",
+   "trivy": {
+    "vulnerabilities": {},
+    "secrets": {},
+    "misconfigurations": {}
+   },
+   "semgrep": {}
+  },
+  {
+   "repo": "webScrapper",
    "trivy": {
     "vulnerabilities": {},
     "secrets": {},
